@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Registered Cars</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">ERCM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'administration' %}">Administration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mainchecker' %}">Main Checker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewcars' %}">View Cars</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="jumbotron text-center">
+  <h1>Main Checker</h1>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table" id="mainCheckerTable">
+        <thead>
+          <tr>
+            <th>First Name <input type="text" class="form-control form-control-sm" placeholder="Search First Name"></th>
+            <th>Last Name <input type="text" class="form-control form-control-sm" placeholder="Search Last Name"></th>
+            <th>Number Plate <input type="text" class="form-control form-control-sm" placeholder="Search Number Plate"></th>
+            <th>Car Company <input type="text" class="form-control form-control-sm" placeholder="Search Car Company"></th>
+            <th>Car Model <input type="text" class="form-control form-control-sm" placeholder="Search Car Model"></th>
+            <th>Car Colour <input type="text" class="form-control form-control-sm" placeholder="Search Car Colour"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in employee_cars %}
+          <tr>
+            <td>{{ car.employee.first_name }}</td>
+            <td>{{ car.employee.last_name }}</td>
+            <td>{{ car.number_plate }}</td>
+            <td>{{ car.car_make.car_company_name }}</td>
+            <td>{{ car.car_model.car_model_name }}</td>
+            <td>{{ car.car_colour }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    // Add event listeners to search inputs
+    $('#mainCheckerTable input').on('keyup', function () {
+        var columnIndex = $(this).closest('th').index(); // Get column index
+        var searchText = $(this).val().toLowerCase(); // Get search text
+        $('#mainCheckerTable tbody tr').filter(function () {
+            var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase(); // Get text of current cell
+            $(this).toggle(cellText.includes(searchText)); // Toggle row based on search text
+        });
+    });
+});
+</script>
+
+</body>
+</html>

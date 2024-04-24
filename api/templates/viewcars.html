@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Cars</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script><script>
+    // Filter table rows based on input value
+    $(document).ready(function(){
+      $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#carTable tbody tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">ERCM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'administration' %}">Administration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mainchecker' %}">Main Checker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewcars' %}">View Cars</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Jumbotron with Title -->
+<div class="jumbotron text-center">
+  <h1>View Cars</h1>
+</div>
+
+<!-- Bootstrap Table with Filtering -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search Car Make/Model">
+      <table id="carTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+              <th>Car Make</th>
+              <th>Car Models</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for car_make, car_models in car_makes.items %}
+            <tr>
+              <td>{{ car_make }}</td>
+              <td>
+                <ul>
+                  {% for car_model in car_models %}
+                  <li>{{ car_model }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

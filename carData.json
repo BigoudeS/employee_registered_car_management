@@ -1,0 +1,123 @@
+{
+    "car_makes": [
+      {
+        "car_make_id": 1,
+        "car_company_name": "Toyota"
+      },
+      {
+        "car_make_id": 2,
+        "car_company_name": "Honda"
+      },
+      {
+        "car_make_id": 3,
+        "car_company_name": "Ford"
+      },
+      {
+        "car_make_id": 4,
+        "car_company_name": "Chevrolet"
+      }
+    ],
+    "car_models": [
+      {
+        "car_model_id": 1,
+        "car_make_id": 1,
+        "car_model_name": "Camry"
+      },
+      {
+        "car_model_id": 2,
+        "car_make_id": 1,
+        "car_model_name": "Corolla"
+      },
+      {
+        "car_model_id": 3,
+        "car_make_id": 1,
+        "car_model_name": "RAV4"
+      },
+      {
+        "car_model_id": 4,
+        "car_make_id": 1,
+        "car_model_name": "Prius"
+      },
+      {
+        "car_model_id": 5,
+        "car_make_id": 1,
+        "car_model_name": "Highlander"
+      },
+      {
+        "car_model_id": 6,
+        "car_make_id": 2,
+        "car_model_name": "Civic"
+      },
+      {
+        "car_model_id": 7,
+        "car_make_id": 2,
+        "car_model_name": "Accord"
+      },
+      {
+        "car_model_id": 8,
+        "car_make_id": 2,
+        "car_model_name": "CR-V"
+      },
+      {
+        "car_model_id": 9,
+        "car_make_id": 2,
+        "car_model_name": "Pilot"
+      },
+      {
+        "car_model_id": 10,
+        "car_make_id": 2,
+        "car_model_name": "Odyssey"
+      },
+      {
+        "car_model_id": 11,
+        "car_make_id": 3,
+        "car_model_name": "F-150"
+      },
+      {
+        "car_model_id": 12,
+        "car_make_id": 3,
+        "car_model_name": "Mustang"
+      },
+      {
+        "car_model_id": 13,
+        "car_make_id": 3,
+        "car_model_name": "Escape"
+      },
+      {
+        "car_model_id": 14,
+        "car_make_id": 3,
+        "car_model_name": "Explorer"
+      },
+      {
+        "car_model_id": 15,
+        "car_make_id": 3,
+        "car_model_name": "Focus"
+      },
+      {
+        "car_model_id": 16,
+        "car_make_id": 4,
+        "car_model_name": "Silverado"
+      },
+      {
+        "car_model_id": 17,
+        "car_make_id": 4,
+        "car_model_name": "Equinox"
+      },
+      {
+        "car_model_id": 18,
+        "car_make_id": 4,
+        "car_model_name": "Malibu"
+      },
+      {
+        "car_model_id": 19,
+        "car_make_id": 4,
+        "car_model_name": "Camaro"
+      },
+      {
+        "car_model_id": 20,
+        "car_make_id": 4,
+        "car_model_name": "Tahoe"
+      }
+    ]
+  }
+  
