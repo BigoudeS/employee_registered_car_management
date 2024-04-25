@@ -84,7 +84,6 @@
 <div class="jumbotron text-center">
   <h1>Administration</h1>
 </div>
-
 <!-- Sections for Adding Employee Car, Employee, Car Make, Car Model, and Health Check -->
 <div id="accordion">
 
@@ -100,42 +99,11 @@
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <!-- Employee Car Form -->
-        <form method="post">
+        <form method="POST" action={% url 'administration' %}>
           {% csrf_token %}
-          <div class="form-group">
-            <label for="employee">Employee:</label>
-            <select name="employee" id="employee" class="form-control">
-                {% for employee in employees %}
-                <option value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
-                {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="number_plate">Number Plate:</label>
-            <input type="text" name="number_plate" id="number_plate" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="car_make">Car Company Name:</label>
-            <select name="car_company_name" id="car_make" class="form-control">
-                {% for car_make in car_makes %}
-                <option value="{{ car_make.id }}">{{ car_make.car_company_name }}</option>
-                {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="car_make">Car Model Name:</label>
-            <select name="car_model" id="car_model" class="form-control">
-                {% for car_model in car_models %}
-                <option value="{{ car_model.id }}">{{ car_model.car_model_name }}</option>
-                {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="car_colour">Car Colour:</label>
-            <input type="text" name="car_colour" id="car_colour" class="form-control" required>
-          </div>
-          <button type="submit" name="employee_car_form" class="btn btn-primary">Submit</button>
-        </form>      
+          {{employee_car_form}}
+      <button>submit</button>
+        </form>  
       </div>
     </div>
   </div>
@@ -152,17 +120,10 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
         <!-- Employee Form -->
-        <form method="post">
+        <form method="POST" action={% url 'administration' %}>
           {% csrf_token %}
-          <div class="form-group">
-            <label for="first_name">First Name:</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" required>
-          </div>
-          <div class="form-group">
-            <label for="last_name">Last Name:</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" required>
-          </div>
-          <button type="submit" class="btn btn-primary" name="employee_form">Submit</button>
+          {{employee_form}}
+      <button>submit</button>
         </form>
       </div>
     </div>
@@ -180,13 +141,10 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
         <!-- Car Make Form -->
-        <form method="post">
+        <form method="POST" action={% url 'administration' %}>
           {% csrf_token %}
-          <div class="form-group">
-            <label for="car_company_name">Car Company Name:</label>
-            <input type="text" class="form-control" id="car_company_name" name="car_company_name" required>
-          </div>
-          <button type="submit" class="btn btn-primary" name="car_make_form">Submit</button>
+          {{car_make_form}}
+      <button>submit</button>
         </form>
       </div>
     </div>
@@ -204,21 +162,10 @@
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
         <!-- Car Model Form -->
-        <form method="post">
+        <form method="POST" action={% url 'administration' %}>
           {% csrf_token %}
-          <div class="form-group">
-            <label for="car_model_name">Car Model Name:</label>
-            <input type="text" class="form-control" id="car_model_name" name="car_model_name" required>
-          </div>
-          <div class="form-group">
-            <label for="car_make">Car Company Name:</label>
-            <select name="car_make" id="car_make" class="form-control">
-                {% for car_make in car_makes %}
-                <option value="{{ car_make.id }}">{{ car_make.car_company_name }}</option>
-                {% endfor %}
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary" name="car_model_form">Submit</button>
+          {{car_model_form}}
+      <button>submit</button>
         </form>
       </div>
     </div>
