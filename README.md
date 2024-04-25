@@ -57,7 +57,7 @@ Once the installation is complete, you can run the Django development server usi
 python manage.py runserver
 ```
 
-This will start the development server, and you can access the application in your web browser at http://localhost:8000/.
+This will start the development server, and you can access the application in your web browser at http://localhost:8000/api.
 
 The password to te administration page is "@Admin123"
 
