@@ -59,3 +59,5 @@ python manage.py runserver
 
 This will start the development server, and you can access the application in your web browser at http://localhost:8000/.
 
+The password to te administration page is "@Admin123"
+
